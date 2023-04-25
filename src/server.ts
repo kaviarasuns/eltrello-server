@@ -18,9 +18,18 @@ import User from "./models/user";
 const app = express();
 const httpServer = createServer(app);
 
+// const io = new Server(httpServer, {
+//   cors: {
+//     origin: "*",
+//   },
+// });
+
 const io = new Server(httpServer, {
   cors: {
     origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+    credentials: true,
   },
 });
 
